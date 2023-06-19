@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Autodiagnóstico</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo de estilos CSS -->
+</head>
+<body>
+  <header>
+    <h1>Formulario de Autodiagnóstico</h1> <!-- Encabezado principal del formulario -->
+ 
+  </header>
+  
+  
+
+  <form action="/enviar" method="POST" id="formulario">
+    <label for="apellidos">Apellidos del paciente:</label>
+    <input type="text" id="apellidos" name="apellidos" required pattern="[a-zA-Z\s]+" title="Ingrese solo letras y espacios"><br>
+  
+    <label for="nombre">Nombre del paciente:</label>
+    <input type="text" id="nombre" name="nombre" required pattern="[a-zA-Z\s]+" title="Ingrese solo letras y espacios"><br>
+  
+    <label for="nif">NIF del paciente:</label>
+    <input type="text" id="nif" name="nif" required pattern="[0-9]{8}[a-zA-Z]" title="Ingrese 8 dígitos seguidos de una letra"><br>
+  
+    <label for="email">Email del paciente:</label>
+    <input type="email" id="email" name="email" required title="Ingrese un email válido"><br>
+  
+    <label for="telefono">Teléfono del paciente:</label>
+    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" title="Ingrese un número de teléfono válido de 9 dígitos"><br>
+  
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" name="sexo" required>
+      <option value="hombre">Hombre</option>
+      <option value="mujer">Mujer</option>
+    </select><br>
+  
+    <label for="nacimiento">Fecha de nacimiento:</label>
+    <input type="text" id="nacimiento" name="nacimiento" placeholder="dd/mm/aaaa" required><br>
+  
+    <fieldset>
+      <legend>Síntomas:</legend>
+  
+      <input type="checkbox" id="sintoma1" name="sintoma1" value="fiebre"> <label for="sintoma1">Fiebre</label><br>
+      <input type="checkbox" id="sintoma2" name="sintoma2" value="tos"> <label for="sintoma2">Tos</label><br>
+      <input type="checkbox" id="sintoma3" name="sintoma3" value="dolor_garganta"> <label for="sintoma3">Dolor de garganta</label><br>
+      <input type="checkbox" id="sintoma4" name="sintoma4" value="dificultad_respirar"> <label for="sintoma4">Dificultad para respirar</label><br>
+      <input type="checkbox" id="sintoma5" name="sintoma5" value="cansancio"> <label for="sintoma5">Cansancio</label><br>
+      <input type="checkbox" id="sintoma6" name="sintoma6" value="dolor_cabeza"> <label for="sintoma6">Dolor de cabeza</label><br>
+      <input type="checkbox" id="sintoma7" name="sintoma7" value="perdida_olfato_gusto"> <label for="sintoma7">Pérdida del olfato o gusto</label><br>
+      <input type="checkbox" id="sintoma8" name="sintoma8" value="diarrea"> <label for="sintoma8">Diarrea</label><br>
+    </fieldset>
+  
+    <label for="frecuencia">Frecuencia de los síntomas:</label>
+    <select id="frecuencia" name="frecuencia" disabled>
+      <option value="">Selecciona una opción</option>
+      <option value="pocas_veces_semana">Pocas veces a la semana</option>
+      <option value="una_o_dos_veces_dia">Una o dos veces al día</option>
+      <option value="varias_veces_dia">Varias veces al día</option>
+    </select><br>
+  
+    <label for="observaciones">Observaciones:</label><br>
+    <textarea id="observaciones" name="observaciones" maxlength="1000"></textarea><br>
+  
+    <div id="contador"></div>
+  
+    <input type="submit" value="Enviar" onclick="mostrarConfirmacion(event)">
+  </form>
+  
+
+  <div id="aviso" style="display: none;">
+    <p>¿Está usted a punto de enviar este formulario. ¿Está seguro?</p>
+    <button onclick="enviarFormulario()">Ok</button>
+    <button onclick="cerrarAviso()">Cerrar</button>
+  </div>
+
+  <script src="script.js"></script> <!-- Enlace al archivo de script JavaScript -->
+</body>
+</html>
